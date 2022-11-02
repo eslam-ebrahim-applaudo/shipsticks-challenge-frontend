@@ -1,0 +1,50 @@
+<p>
+  <mat-toolbar color="primary">
+    <span>Product Calculator</span>
+  </mat-toolbar>
+</p>
+
+<form [formGroup]="calculatorForm"  (ngSubmit)="calculate()">
+  <div class="row">
+    <mat-form-field appearance="fill" class="col-6">
+      <mat-label>Length</mat-label>
+      <input matInput type="number" formControlName="length">
+      <mat-error *ngIf="calculatorForm.controls.length.invalid">Required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="col-6">
+      <mat-label>Width</mat-label>
+      <input matInput type="number" formControlName="width">
+      <mat-error *ngIf="calculatorForm.controls.width.invalid">Required</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Height</mat-label>
+      <input matInput type="number" formControlName="height" class="col-6">
+      <mat-error *ngIf="calculatorForm.controls.height.invalid">Required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Weight</mat-label>
+      <input matInput type="number" formControlName="weight" class="col-6">
+      <mat-error *ngIf="calculatorForm.controls.weight.invalid">Required</mat-error>
+    </mat-form-field>
+  </div>
+
+  <button type="submit" mat-raised-button color="primary">
+    Calculate
+  </button>
+  <button mat-raised-button (click)="close()">
+    Close
+  </button>
+
+  <br>
+  <br>
+
+  <p *ngIf="name != ''">
+    Use {{ name }}
+  </p>
+
+
+</form>
